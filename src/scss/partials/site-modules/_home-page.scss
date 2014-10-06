@@ -1,0 +1,71 @@
+body.home {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image:url(../img/food_desktop_pizza.jpg);
+}
+
+	.login-wrapper {
+		margin: 20px auto;
+		width: 90%;
+		background: rgba(30,30,30,.8);
+		overflow: hidden;
+		padding:20px;
+		border-radius:10px;
+
+		@include bp(twelve-column) {
+			width:700px;
+			margin:140px auto 0;
+		}
+		
+		h1 {
+			color:white;
+			margin:0;
+		}
+		h2 {
+			color: white;
+			margin: 5px 0 20px;
+			font-size: 20px;
+			padding-bottom:20px;
+			border-bottom:1px solid white;
+		}
+		h3 {
+			color:white;
+			margin: 5px 0;
+			font-size: 24px;
+			text-align: center;
+
+		}
+		label {
+			color:white;
+			display: block;
+			margin:7px 6% 4px; 
+		}
+		input {
+			display: block;
+			width: 90%;
+			margin:0 5%;
+		}
+		button {
+			background:#b00;
+			border:1px solid #b00;
+			margin: 20px auto 0;
+			display: block;
+			color:white;
+			padding: 7px 25px;
+		}
+		.login-left {
+			float:left;
+			padding: 5px 10px;
+			width:50%;
+			border-right:1px solid white;
+
+		}
+		.login-right {
+			float:right;
+			padding: 5px 10px;
+			width: 50%;
+			
+		}
+	}

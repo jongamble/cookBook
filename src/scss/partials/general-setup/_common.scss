@@ -1,0 +1,10 @@
+.main-body {
+	background:#f5f5ed;
+	padding: 30px 0;
+	
+	@include bp(twelve-column) {
+		padding: 50px 0;
+		
+	}
+	
+}

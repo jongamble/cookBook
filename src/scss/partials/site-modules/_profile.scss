@@ -1,0 +1,252 @@
+.profile-side {
+	width:100%;
+	margin-bottom:20px;
+	overflow: hidden;
+	@include bp(eight-column) {	
+		width:30%;
+		float:left;
+	}
+	@include bp(sixteen-column) {
+		width:20%;
+	}
+
+	.profile-picture {
+		width:64px;
+		float:left;
+
+		@include bp(eight-column) {
+			width:150px;
+			float:none;
+			margin:auto;
+			display: block;
+		}
+		@include bp(twelve-column) {
+			width:175px;
+		}
+	}
+	.profile-name {
+		color:black;
+		float: left;
+		font-size: 16px;
+		margin:25px 10px 0;
+		text-align: center;
+		@include bp(eight-column) {
+			display: block;
+			float:none;
+			font-size: 24px;
+			margin: 10px 0 5px;
+		}
+	}
+	.profile-email {
+		display: none;
+		@include bp(eight-column) {
+			display: block;
+			margin:5px 0;
+			text-align: center;
+		}	
+	}
+	.profile-blog {
+		display: none;
+		@include bp(eight-column) {
+			display: block;
+			margin:5px 0;
+			text-align: center;
+		}	
+	}
+
+	.profile-follows {
+		float:right;
+		width: 150px;
+		margin:15px 0 0;
+		@include bp(eight-column) {
+			float:none;
+			margin:10px auto;
+		}
+		
+		.follower-number {
+			width:50%;
+			display: block;
+			float:left;
+			font-size: 22px;
+			text-align: center;
+			color:black;
+			.label {
+				font-size: 8px;
+				display: block;
+				color:black;
+			}
+		}
+		.following-number {
+			@extend .follower-number;
+			border-left:1px solid black;
+			float:right;
+		}
+	}
+}
+
+
+
+.profile-main {
+	clear:both;
+	@include bp(eight-column) {
+		width:70%;
+		float:right;
+		clear:none;
+	}
+	
+	@include bp(sixteen-column) {
+		width:80%;
+	}
+	
+	
+
+	.profile-main-top {
+		clear:both;
+		margin: 0 auto 20px;
+		overflow: hidden;
+		width:60%;
+
+		.recipe-number {
+			color:black;
+			display: block;
+			float:left;
+			font-size: 40px;
+			text-align: center;
+			text-decoration: none;
+			width:50%;
+
+			.label {
+				display: block;
+				font-size: 12px;
+			}
+		}
+		.favorite-number {
+			@extend .recipe-number;
+			border-left:1px solid black;
+			float:right;
+			
+		}
+	}
+
+	.profile-search-container {
+		padding: 25px 0;
+		border-top:1px solid black;
+		overflow: hidden;
+	}
+		.profile-search {
+			width:89%;
+			float:left;
+
+			@include bp(eight-column) {
+				margin-left:2.5%;
+				width:87.5%;
+				
+			}
+			
+
+			input {
+				border:1px solid black;
+				float: left;
+				margin:0;
+				width:90%;
+				padding:10px 15px;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius:5px
+			}
+			.profile-search-button {
+				background: white;
+				border:1px solid black;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+				float:right;
+				margin:0;
+				padding: 10px 0;
+				border-left:none;
+				width:10%;
+			}
+		}
+		.profile-advanced-search {
+			background:white;
+			border:1px solid black;
+			border-radius:5px;
+			color:black;
+			display: block;
+			float:right;
+			padding: 0 0 6px;
+			text-align: center;
+			margin: 4px 0 0 2%; 
+			width:8%;
+
+			@include bp(eight-column) {
+				margin: 4px 2.5% 0; 
+				width:5%;
+			}
+			
+
+		}
+
+	.profile-results-list {
+		list-style: none;
+		padding:0;
+		margin:20px 0;
+		overflow: hidden;
+	}
+		.profile-result {
+			width:95%;
+			margin: 10px 2.5%;
+			float:left;
+
+			@include bp(eight-column) {
+				width:45%;
+			}
+			@include bp(twelve-column) {
+				width:30%;
+				margin:10px 1.5%;
+			}
+			@include bp(sixteen-column) {
+				width:23%;
+				margin:10px 1%;
+			}
+			
+			
+			
+		}
+			.profile-result-link {
+				display: block;
+				overflow: hidden;
+				position: relative;
+
+				&:hover {
+					.profile-result-overlay {
+						top:0;
+					}
+				}
+			}
+				.profile-result-overlay {
+					@include transition(.2s all);
+					bottom:0;
+					background: rgba(50,50,50,.7);
+					left:0;
+					position: absolute;
+					padding:5px 10px;
+					right:0;
+					top:73%;
+					@include bp(eight-column) {
+						top:65%;
+					}
+					
+				}
+				.profile-result-title {
+					color:white;
+					margin: 0;
+					font-size: 24px;
+					@include bp(eight-column) {
+						font-size:18px;
+					}
+					
+				}
+				.profile-result-rating {
+					color:white;
+					display: block;
+				}
+}
