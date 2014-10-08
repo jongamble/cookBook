@@ -1,6 +1,6 @@
 <header class="main-header">
 	<div class="wrapper">
-		<a href="/" class="main-header-home"><i class="fa fa-home"></i></a>
+		<a href="index.php" class="main-header-home"><i class="fa fa-home"></i></a>
 		<h1 class="main-header-logo"><a href="index.php">cookBook</a></h1>
 		<a href="#" class="main-header-menu"><i class="fa fa-navicon"></i></a>
 		<ul class="main-header-menu-list">

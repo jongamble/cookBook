@@ -1,0 +1,81 @@
+.edit-profile-main {
+	clear:both;
+	@include bp(eight-column) {
+		width:70%;
+		float:right;
+		clear:none;
+	}
+	
+	@include bp(sixteen-column) {
+		padding-left:10%;
+	}
+}
+.edit-profile-header {
+	color:#2d2d2d;
+	font-size: 36px;
+	margin: 0;
+}
+.edit-profile-form {
+	padding:20px 0;
+	
+	@include bp(eight-column) {	width:80%;}
+	@include bp(twelve-column) { width:70%;}
+	@include bp(sixteen-column) { width:60%;}
+	
+	fieldset {
+		border:none;
+		margin:0 0 25px;
+		padding:0;
+		overflow: hidden;
+	}
+	label {
+		color:#2d2d2d;
+		padding: 8px 8% 5px 0;
+		font-size: 14px;
+		width:100%;
+		@include bp(eight-column) {
+			float:left;
+			text-align: right;
+			width:40%;
+		}
+		
+	}
+	input[type="text"] {
+		border:1px solid #999;
+		color:#2d2d2d;
+		font-size: 16px;
+		padding: 5px 15px;
+		width:100%;
+		@include bp(eight-column) {
+			float:right;
+			width:60%;
+		}
+		
+	}
+	.avatar-label {
+		display: block;
+	}
+	.profile-avatar {
+		width:64px;
+		border-radius: 10px;
+		float:left;
+		
+	}
+	.avatar-info {
+		float:left;
+		padding-left:15px;
+	}
+		.avatar-file {
+			width:190px;
+		}
+		.avatar-description {
+			width:190px;
+			display: block;
+			font-size: 12px;
+			margin-top:5px;
+		}
+
+	.edit-profile-submit {
+		@extend %btn;
+	}
+}

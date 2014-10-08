@@ -9,7 +9,7 @@ body, select, input, textarea {
 }
 
 body {
-	background-color: #f7f7f7;
+	background:#f5f5ed;
 	overflow-x: hidden;
 	padding-bottom:0;
 	margin:0;
@@ -18,10 +18,10 @@ body {
 ::-moz-selection { color: #fff; background: #2c3e50; }
 ::selection { color: #fff; background: #2c3e50; } 
 
-::-webkit-input-placeholder { color: #695b54; }
-:-moz-placeholder {color: #695b54; }
-::-moz-placeholder { color: #695b54; }
-:-ms-input-placeholder { color: #695b54; }
+::-webkit-input-placeholder { color: #999; }
+:-moz-placeholder {color: #999; }
+::-moz-placeholder { color: #999; }
+:-ms-input-placeholder { color: #999; }
 
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
@@ -46,7 +46,13 @@ nav ol { margin: 0; padding: 0; list-style: none; }
 
 // Global Site Wrapper
 .wrapper {
-	margin: 0 auto; position: relative; padding: 0 10px; z-index: 1; width: 100%; overflow: hidden;
+	margin: 0 auto; 
+	position: relative; 
+	padding: 0 10px; 
+	z-index: 1; 
+	width: 100%; 
+	overflow: hidden;
+	
 	@include bp(twelve-column) {
 		width: 960px;
 	}

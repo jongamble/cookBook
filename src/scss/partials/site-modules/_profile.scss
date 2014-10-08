@@ -8,6 +8,7 @@
 	}
 	@include bp(sixteen-column) {
 		width:20%;
+		margin-left:10%
 	}
 
 	.profile-picture {
@@ -25,11 +26,14 @@
 		}
 	}
 	.profile-name {
-		color:black;
 		float: left;
 		font-size: 16px;
 		margin:25px 10px 0;
 		text-align: center;
+		a {
+			color:black;
+			text-decoration: none;
+		}
 		@include bp(eight-column) {
 			display: block;
 			float:none;
@@ -39,6 +43,11 @@
 	}
 	.profile-email {
 		display: none;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 		@include bp(eight-column) {
 			display: block;
 			margin:5px 0;
@@ -47,6 +56,10 @@
 	}
 	.profile-blog {
 		display: none;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
 		@include bp(eight-column) {
 			display: block;
 			margin:5px 0;
@@ -58,6 +71,7 @@
 		float:right;
 		width: 150px;
 		margin:15px 0 0;
+		overflow: hidden;
 		@include bp(eight-column) {
 			float:none;
 			margin:10px auto;
@@ -82,6 +96,25 @@
 			float:right;
 		}
 	}
+	.profile-edit {
+		display: block;
+		float:left;
+		font-size: 12px;
+		color:#4d4d4d;
+		clear:both;
+		margin: 5px 0 0;
+		
+		@include bp(eight-column) {
+			text-align: center;
+			float:none;
+			margin: 10px 0;
+			overflow: hidden;
+		}
+		
+		&:hover {
+			color:#2d2d2d;
+		}
+	}
 }
 
 
@@ -95,7 +128,8 @@
 	}
 	
 	@include bp(sixteen-column) {
-		width:80%;
+		width:70%;
+		padding-left:10%;
 	}
 	
 	
@@ -107,13 +141,17 @@
 		width:60%;
 
 		.recipe-number {
-			color:black;
+			color: #4d4d4d;
 			display: block;
 			float:left;
 			font-size: 40px;
 			text-align: center;
 			text-decoration: none;
 			width:50%;
+
+			&:hover {
+				color:#2d2d2d;
+			}
 
 			.label {
 				display: block;
@@ -134,56 +172,93 @@
 		overflow: hidden;
 	}
 		.profile-search {
-			width:89%;
-			float:left;
-
-			@include bp(eight-column) {
-				margin-left:2.5%;
-				width:87.5%;
-				
-			}
-			
-
-			input {
-				border:1px solid black;
-				float: left;
-				margin:0;
-				width:90%;
-				padding:10px 15px;
-				border-top-left-radius: 5px;
-				border-bottom-left-radius:5px
-			}
-			.profile-search-button {
-				background: white;
-				border:1px solid black;
-				border-top-right-radius: 5px;
-				border-bottom-right-radius: 5px;
-				float:right;
-				margin:0;
-				padding: 10px 0;
-				border-left:none;
-				width:10%;
-			}
-		}
-		.profile-advanced-search {
-			background:white;
-			border:1px solid black;
-			border-radius:5px;
-			color:black;
+			overflow: hidden;
 			display: block;
-			float:right;
-			padding: 0 0 6px;
-			text-align: center;
-			margin: 4px 0 0 2%; 
-			width:8%;
-
-			@include bp(eight-column) {
-				margin: 4px 2.5% 0; 
-				width:5%;
-			}
-			
-
+			width:100%;
 		}
+			.profile-search-min {
+				width:89%;
+				float:left;
+
+				@include bp(eight-column) {
+					margin-left:2.5%;
+					width:87.5%;
+					
+				}
+				
+
+				input {
+					border:1px solid black;
+					float: left;
+					margin:0;
+					width:90%;
+					padding:10px 15px;
+					border-top-left-radius: 5px;
+					border-bottom-left-radius:5px
+				}
+				.profile-search-button {
+					background: white;
+					border:1px solid black;
+					border-top-right-radius: 5px;
+					border-bottom-right-radius: 5px;
+					float:right;
+					margin:0;
+					padding: 10px 0;
+					border-left:none;
+					width:10%;
+				}
+			}
+			.profile-advanced-search {
+				background:white;
+				border:1px solid black;
+				border-radius:5px;
+				color:black;
+				display: block;
+				float:right;
+				padding: 0 0 6px;
+				text-align: center;
+				margin: 0 0 0 2%; 
+				width:8%;
+
+
+				@include bp(eight-column) {
+					margin: 0 2.5% 0; 
+					width:5%;
+				}
+				
+				.fa-sort-desc {
+					padding-top:6px;
+					padding-bottom:4px;
+				}
+				.fa-sort-asc {
+					margin-top:12px;
+					margin-bottom:-2px;
+					vertical-align: bottom;
+				}
+
+			}
+			.profile-search-adv {
+				display: none;
+				clear:both;
+				overflow: hidden;
+				margin-top:15px;
+				float:left;
+
+				fieldset {
+					border:none;
+					float:left;
+					width:31%;
+					margin:5px 1%;
+					label, input {
+						width:100%;
+						display: block;
+					}
+				}
+
+				.search-type {
+					
+				}
+			}
 
 	.profile-results-list {
 		list-style: none;
@@ -230,10 +305,9 @@
 					position: absolute;
 					padding:5px 10px;
 					right:0;
-					top:73%;
-					@include bp(eight-column) {
-						top:65%;
-					}
+					
+					top:90%;
+					
 					
 				}
 				.profile-result-title {

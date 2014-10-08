@@ -48,12 +48,7 @@ body.home {
 			margin:0 5%;
 		}
 		button {
-			background:#b00;
-			border:1px solid #b00;
-			margin: 20px auto 0;
-			display: block;
-			color:white;
-			padding: 7px 25px;
+			@extend %btn;
 		}
 		.login-left {
 			float:left;

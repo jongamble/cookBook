@@ -3,6 +3,7 @@
 
 // ------ Bourbon CSS ------ //
 @import "partials/bourbon/bourbon";
+@import "partials/plugin-stylesheets/jvfloat";
 
 // ------ Site's Fonts, Variables & Plugins ------ //
 @import "partials/general-setup/mixins";
@@ -19,5 +20,6 @@
 
 @import "partials/site-modules/home-page";
 @import "partials/site-modules/profile";
+@import "partials/site-modules/edit-profile";
 
 @import "partials/site-modules/internal";
