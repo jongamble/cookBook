@@ -1,1 +1,72 @@
 /*** Our Menu Styles ***/
+
+.main-header-menu {
+		border:#aaa;
+		border-radius: 7px;
+		color:#ddd;
+		display: inline-block;
+		float:right;
+		font-size: 28px;
+		padding: 20px;
+		width:15%;
+		text-align: right;
+		
+		@include bp(twelve-column) {
+			display:none;
+		}
+	}
+
+	.main-header-menu-list {
+		background: #2d2d2d;
+		clear:both;
+		display: none;
+		list-style: none;
+		overflow: hidden;
+		padding: 0 0 15px;
+
+		&.active {
+			display: block;
+		}
+
+		@include bp(twelve-column) {
+			display: inline;
+			float:right;
+			clear:none;
+			margin: 30px 0 0;
+			padding:0;
+		}
+		
+
+		li {
+			display: block;
+			margin:0;
+			padding:0;
+			border-bottom: 1px solid #999;
+
+			@include bp(twelve-column) {
+				display: inline;
+				border:none;
+				overflow: hidden;
+				float:left;
+			}
+			
+
+			a {
+				color:white;
+				padding: 10px 15px;
+				display: block;
+				overflow: hidden;
+				text-decoration: none;
+
+				@include bp(twelve-column) {
+					display: inline-block;
+					padding: 5px 15px;
+				}
+				
+
+				&:hover {
+					background: #4d4d4d;
+				}
+			}
+		}
+	}

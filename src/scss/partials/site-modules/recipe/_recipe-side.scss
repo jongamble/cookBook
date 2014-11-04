@@ -1,0 +1,154 @@
+.recipe-side {
+	
+	display: none;
+	margin-bottom:20px;
+	overflow: hidden;
+	@include bp(eight-column) {	
+		display: block;
+		float:left;
+		width:30%;
+	}
+	@include bp(sixteen-column) {
+		width:20%;
+		
+	}
+
+	.recipe-profile-picture {
+		width:64px;
+		float:left;
+
+		@include bp(eight-column) {
+			width:150px;
+			float:none;
+			margin:auto;
+			display: block;
+		}
+		@include bp(twelve-column) {
+			width:175px;
+		}
+	}
+	.recipe-profile-name {
+		float: left;
+		font-size: 16px;
+		margin:25px 10px 0;
+		text-align: center;
+		a {
+			color:black;
+			text-decoration: none;
+		}
+		@include bp(eight-column) {
+			display: block;
+			float:none;
+			font-size: 24px;
+			margin: 10px 0 5px;
+		}
+	}
+	.recipe-profile-email {
+		display: none;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+		@include bp(eight-column) {
+			display: block;
+			margin:5px 0;
+			text-align: center;
+		}	
+	}
+	.recipe-profile-blog {
+		display: none;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+		@include bp(eight-column) {
+			display: block;
+			margin:5px 0;
+			text-align: center;
+		}	
+	}
+
+	.recipe-profile-follows {
+		float:right;
+		width: 150px;
+		margin:15px 0 0;
+		overflow: hidden;
+		@include bp(eight-column) {
+			float:none;
+			margin:10px auto;
+		}
+		
+		.follower-number {
+			width:50%;
+			display: block;
+			float:left;
+			font-size: 22px;
+			text-align: center;
+			color:black;
+			.label {
+				font-size: 8px;
+				display: block;
+				color:black;
+			}
+		}
+		.following-number {
+			@extend .follower-number;
+			border-left:1px solid black;
+			float:right;
+		}
+	}
+
+	.recipe-follow-profile {
+		background: white;
+		border:1px solid #00688B;
+		color:#00B2EE;
+		display: block;
+		margin:25px 15% ;
+		padding: 3px 15px;
+		text-align: center;
+		text-decoration: none;
+		width:70%;
+
+		&:hover {
+			background:#00B2EE;
+			color:white;
+		}
+	}
+
+	.recipe-share {
+		overflow: hidden;
+
+		h4 {
+			text-align: center;
+			color:black;
+			font-weight: normal;
+			font-size: 14px;
+			margin:0;
+		}
+	}
+		.recipe-share-list {
+			display: block;
+			margin:5px 0;
+			text-align: center;
+			width:100%;
+			font-size: 36px;
+			a{
+				color:#4a4a4a;
+
+				&.facebook:hover {
+					color:#3b5998
+				}
+				&.twitter:hover {
+					color:#4099ff
+				}
+				&.pinterest:hover {
+					color:#c92228
+				}
+				&.gplus:hover {
+					color:#2d2d2d
+				}
+			}
+		}
+	
+}

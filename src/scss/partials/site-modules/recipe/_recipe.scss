@@ -1,0 +1,96 @@
+.recipe-main {
+	clear:both;
+	@include bp(eight-column) {
+		width:70%;
+		float:right;
+		clear:none;
+	}
+	
+	@include bp(sixteen-column) {
+		width:80%;
+		padding-left:5%;
+	}	
+}
+
+	.recipe-main-top {
+		clear:both;
+		margin: 0 auto 20px;
+		overflow: hidden;
+	}
+		.recipe-title {
+			color:black;
+			font-size: 30px;
+			margin:0 0 15px;
+		}
+		.recipe-rating-short {
+			margin-right:25px;
+		}
+		.recipe-favorites {
+			margin-right:25px;
+		}
+		.recipe-favorite-button {
+			background: white;
+			border:1px solid #CD0000;
+			color:#CD0000;
+			clear:both;
+			display: block;
+			margin:10px auto;
+			padding: 3px 15px;
+			text-align: center;
+			text-decoration: none;
+			width: 150px;
+			
+			@include bp(eight-column) {
+				margin: 10px 10px;
+			}
+			
+
+			&:hover {
+				background:#FF6A6A;
+				color:white;
+			}
+		}
+		.recipe-cuisine {
+			margin-right:25px;
+		}
+		.recipe-difficulty {
+			margin-right:25px;
+		}
+		.recipe-description {}
+		.recipe-prep-time {
+			margin-right:25px;
+		}
+		.recipe-cook-time {
+			margin-right:25px;
+		}
+
+	.recipe-tab-bar {
+		width: 100%;
+		padding: 0 5%;
+		margin: 0;
+		overflow: hidden;
+		clear:both;
+	}
+		.recipe-tab-link {
+			width:20%;
+			display: block;
+			text-align: center;
+			float:left;
+			text-decoration: none;
+			color:black;
+			border:1px solid black;
+			border-right: none;
+			padding:8px 0;
+			font-size: 20px;
+
+			&:first-of-type {
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+
+			&:last-of-type {
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+				border-right:1px solid black;
+			}
+		}

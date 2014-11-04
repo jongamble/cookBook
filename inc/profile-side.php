@@ -1,7 +1,6 @@
 <aside class="profile-side">
 	<img src="lib/img/cookiemonster-profile.png" alt="" class="profile-picture">
 	<p class="profile-name"><a href="profile.php">John Smith</a></p>
-	<a href="" class="profile-email">Email</a>
 	<a href="" class="profile-blog">Blog</a>
 	<div class="profile-follows">
 		<span class="follower-number">9999 <span class="label">Followers</span></span>

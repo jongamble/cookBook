@@ -15,11 +15,19 @@
 
 @import "partials/site-modules/site-header";
 @import "partials/site-modules/site-footer";
-
 @import "partials/site-modules/navigation";
 
+// ------ Home Page ------ //
 @import "partials/site-modules/home-page";
-@import "partials/site-modules/profile";
-@import "partials/site-modules/edit-profile";
 
-@import "partials/site-modules/internal";
+
+// ------ Profile Styles ------ //
+@import "partials/site-modules/profile/profile-side";
+@import "partials/site-modules/profile/profile";
+@import "partials/site-modules/profile/edit-profile";
+
+
+// ------ Recipe Styles ------ //
+@import "partials/site-modules/recipe/recipe-side";
+@import "partials/site-modules/recipe/recipe";
+@import "partials/site-modules/recipe/edit-recipe";
