@@ -1,6 +1,6 @@
 {
   "name": "KuchBuch",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Share your recipes with the world!",
   "main": "app.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "url": "https://github.com/jongamble/cookBook/issues"
   },
   "homepage": "https://github.com/jongamble/jarvis",
-  "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.7.1",
@@ -26,11 +25,15 @@
     "grunt-contrib-uglify": "~0.2.5"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.6.5",
     "connect-flash": "~0.1.1",
     "express": "~4.8.0",
+    "express-session": "^1.9.1",
     "jade": "~1.5.0",
     "mongoose": "~3.8.14",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "socket.io": "^1.0.6"
   }
 }
