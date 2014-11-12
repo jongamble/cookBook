@@ -23,7 +23,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use( bodyParser.json() );
 // required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ resave: true,
+                  saveUninitialized: true,
+                  secret: 'uwotm8' }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -56,8 +58,8 @@ var isAdmin = function(req, res, next) {
 	res.redirect('/profile');
 };
 
-require('./app/recipe.js')(app, mongoose);
-require('./app/profile.js')(app, mongoose);
+require('./app/recipe.js')(app, mongoose, isLoggedIn);
+require('./app/profile.js')(app, mongoose, isLoggedIn);
 
 app.listen(port);
 console.log('server is running');

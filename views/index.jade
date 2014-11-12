@@ -1,0 +1,28 @@
+include ./inc/html-head.jade
+body(class="home")
+	include ./inc/header.jade
+	div(class="wrapper")
+		div(class="login-wrapper")
+			h1 Cook Book
+			h2 Browse. Share. Cook.
+			div(class="login-left")
+				h3 Signup
+				form(action="/signup" class="home-sign-up")
+					label(for="name") Name
+					input(type="text" name="name")
+					label(for="email") Email
+					input(type="text" name="email")
+					label(for="password1") Password
+					input(type="password" name="password1")
+					label(for="password1") Confirm Password
+					input(type="password" name="password2")
+					button(type="submit" name="submit") Sign Up
+			div(class="login-right")
+				h3 Log In
+				form(action="/login" class="home-login")
+					label(for="email") Email
+					input(type="text" name="email")
+					label(for="password") Password
+					input(type="text" name="password")
+					button(type="submit" name="submit") Log In
+include ./inc/footer.jade

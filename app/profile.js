@@ -2,9 +2,9 @@
 
 var User = require('./models/user');
 
-module.exports = function(app, mongoose) { 
+module.exports = function(app, mongoose, isLoggedIn) { 
 	// set routes
-	app.get('/lights', function(req, res) {
+	app.get('/lights', isLoggedIn, function(req, res) {
 		Lights.find().exec(function(err, items){
 			res.render('lights', {
 				items:items //get light data and pass to template
