@@ -8,6 +8,7 @@ var recipeSchema = mongoose.Schema({
 	name: String,
 	description: String,
 	cuisineType: String,
+	rating: String,
 	difficulty: String,
 	cookTime: String,
 	prepTime: String,

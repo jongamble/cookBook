@@ -6,29 +6,33 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 var path = require('path');
-var session = require('express-session');
-
-
-var bodyParser = require('body-parser')
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
 
 
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
-require('./config/passport')(passport); // pass passport for configuration
+
+require('./config/passport.js')(passport); // pass passport for configuration
+
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
 
 // views as directory for all template files
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use( bodyParser.json() );
+
 // required for passport
-app.use(session({ resave: true,
-                  saveUninitialized: true,
-                  secret: 'uwotm8' }));
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+
 app.use(express.static('public'));
 
 // set routes
@@ -36,30 +40,9 @@ app.use(express.static('public'));
       res.render('index');
     });
 
-
-// route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
-
-	// if user is authenticated in the session, carry on 
-	if (req.isAuthenticated())
-		return next();
-
-	// if they aren't redirect them to the home page
-	console.log('Not Authenticated');
-	res.redirect('/');
-}
-
-var isAdmin = function(req, res, next) {
-	if (req.user && req.user.flagAdmin === true)
-		return next();
-	
-	// if they aren't redirect them to the home page
-	console.log('Not an Admin');
-	res.redirect('/profile');
-};
-
-require('./app/recipe.js')(app, mongoose, isLoggedIn);
-require('./app/profile.js')(app, mongoose, isLoggedIn);
+require('./app/users.js')(app, mongoose, passport);
+require('./app/recipe.js')(app, mongoose);
+require('./app/profile.js')(app, mongoose);
 
 app.listen(port);
 console.log('server is running');

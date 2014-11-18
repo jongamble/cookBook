@@ -4,7 +4,7 @@
 var LocalStrategy   = require('passport-local').Strategy;
 
 // load up the user model
-var User       		= require('../app/models/user');
+var User = require('../app/models/user');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -27,13 +27,13 @@ module.exports = function(passport) {
         });
     });
 
- 	// =========================================================================
+    // =========================================================================
     // LOCAL SIGNUP ============================================================
     // =========================================================================
     // we are using named strategies since we have one for login and one for signup
-	// by default, if there was no name, it would just be called 'local'
+    // by default, if there was no name, it would just be called 'local'
 
-    passport.use('local-signup', new LocalStrategy({
+    passport.use('signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'email',
         passwordField : 'password',
@@ -44,36 +44,38 @@ module.exports = function(passport) {
         // asynchronous
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
-        console.log(User.findOne({ 'email' :  username }));
-		// find a user whose email is the same as the forms email
-		// we are checking to see if the user trying to login already exists
-        User.findOne({ 'email' :  username }, function(err, user) {
+        console.log(User.findOne({ 'username' :  username }));
+        // find a user whose domain is the same as the forms domain
+        // we are checking to see if the user trying to login already exists
+        User.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error
-            if (err)
+            if (err){
+                console.log(err);
                 return done(err);
+            }
 
             // check to see if theres already a user with that email
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                console.log(user);
+                return done(null, false, req.flash('signupMessage', 'That domain is already taken.'));
             } else {
 
-				// if there is no user with that email
+                // if there is no user with that email
                 // create the user
                 var newUser            = new User();
 
                 // set the user's local credentials
-                newUser.email = username;
-                newUser.flagActive = req.body.flagActive;
-                newUser.flagAdmin = req.body.flagAdmin;
-                newUser.local.username    = req.body.email;
-                newUser.local.password = newUser.generateHash(password);
                 newUser.name = req.body.name;
-
-				// save the user
+                newUser.email = req.body.email;
+                newUser.flagActive = true;
+                newUser.local.username    = req.body.name;
+                newUser.local.password = newUser.generateHash(password);
+                console.log(newUser);
+                // save the user
                 newUser.save(function(err) {
                     if (err)
                         throw err;
-                    return done(null, false);
+                    return done(null, newUser);
                 });
             }
 
@@ -98,7 +100,7 @@ module.exports = function(passport) {
     function(req, email, password, done) { // callback with email and password from our form
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ 'email' :  email }, function(err, user) {
+        User.findOne({ 'username' :  email }, function(err, user) {
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err);

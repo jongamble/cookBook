@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
     urlSlug: String,
     avatar: String,
     local            : {
-        email       : String,
+        username       : String,
         password     : String,
     },
     myFavorites: [mongoose.Schema.Types.ObjectId],
