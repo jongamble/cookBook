@@ -5,7 +5,7 @@ var User = require('./models/user');
 module.exports = function(app, mongoose, passport) { 
 	// set routes
 	app.post('/createUser', function(req, res, next) {
-		passport.authenticate('signup', function(err, user, info) {
+		passport.authenticate('local-signup', function(err, user, info) {
 		if (err) {
 		  return next(err); // will generate a 500 error
 		}
@@ -18,6 +18,12 @@ module.exports = function(app, mongoose, passport) {
 		return res.send({ success : true, message : 'authentication succeeded' });
 		})(req, res, next);
 	});
+
+	app.post('/signup', passport.authenticate('local-signup', {
+			successRedirect : '/profile', // redirect to the secure profile section
+			failureRedirect : '/', // redirect back to the signup page if there is an error
+			failureFlash : true // allow flash messages
+		}));
 
 
 	app.post('/login', passport.authenticate('local-login', {

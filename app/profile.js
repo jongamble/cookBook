@@ -2,9 +2,9 @@
 
 var User = require('./models/user');
 
-module.exports = function(app, mongoose, isLoggedIn) { 
+module.exports = function(app, mongoose) { 
 	// set routes
-	app.get('/profile', isLoggedIn, function(req, res) {
+	app.get('/profile', function(req, res) {
 		res.render('profile', {
 			user : req.user
 		});
